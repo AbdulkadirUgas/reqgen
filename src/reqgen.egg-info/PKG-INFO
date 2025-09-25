@@ -1,0 +1,60 @@
+Metadata-Version: 2.4
+Name: reqgen
+Version: 0.1.0
+Summary: Generate requirements.txt from your codebase and compare with current environment
+Author-email: Ugas Abdulkadir <ugasbanin@gmail.com>
+License: MIT
+Keywords: requirements.txt,dependency,scanner,pip,conda
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Environment :: Console
+Classifier: Topic :: Software Development :: Build Tools
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+
+# reqgen
+
+Generate a `requirements.txt` by scanning your Python code for imports. Also compare those requirements with your current environment (pip _or_ conda) to find missing packages and version differences.
+
+## Install
+
+```bash
+pip install git+https://github.com/<you>/reqgen.git
+# or local dev
+pip install -e .
+```
+
+## Usage
+
+Scan whole project (current directory) and write `requirements.txt` with versions pinned to what's installed:
+
+```bash
+reqgen scan -o requirements.txt
+```
+
+Scan only one file:
+
+```bash
+reqgen scan --file path/to/script.py -o requirements.txt
+```
+
+Print requirements without writing a file and without versions:
+
+```bash
+reqgen scan --pin none
+```
+
+Compare with your current environment:
+
+```bash
+reqgen compare
+```
+
+This prints missing packages and version mismatches.
+
+## Notes
+- Works in pip or conda: versions are discovered via `importlib.metadata`.
+- Heuristics map common import names to PyPI packages (e.g., `cv2 -> opencv-python`, `PIL -> Pillow`). Extend `reqgen/mappings.py` for more.
+- Relative imports are treated as local modules and ignored.
+

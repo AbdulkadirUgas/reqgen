@@ -1,0 +1,30 @@
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "reqgen"
+version = "0.1.0"
+description = "Generate requirements.txt from your codebase and compare with current environment"
+readme = "README.md"
+authors = [{name = "Ugas Abdulkadir", email = "ugasbanin@gmail.com"}]
+requires-python = ">=3.9"
+license = {text = "MIT"}
+keywords = ["requirements.txt", "dependency", "scanner", "pip", "conda"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Environment :: Console",
+  "Topic :: Software Development :: Build Tools",
+]
+
+[project.scripts]
+reqgen = "reqgen.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["reqgen*"]

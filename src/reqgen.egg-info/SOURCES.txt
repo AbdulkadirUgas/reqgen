@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+src/reqgen/__init__.py
+src/reqgen/cli.py
+src/reqgen/mappings.py
+src/reqgen/scan.py
+src/reqgen.egg-info/PKG-INFO
+src/reqgen.egg-info/SOURCES.txt
+src/reqgen.egg-info/dependency_links.txt
+src/reqgen.egg-info/entry_points.txt
+src/reqgen.egg-info/top_level.txt
