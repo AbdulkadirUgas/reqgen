@@ -6,8 +6,9 @@ Generate a `requirements.txt` by scanning your Python code for imports. Also com
 ## Install
 
 ```bash
-pip install git+https://github.com/<you>/reqgen.git
-# or local dev
+pip install git+https://github.com/AbdulkadirUgas/reqgen.git
+
+# or clone the project and install local dev
 pip install -e .
 ```
 
